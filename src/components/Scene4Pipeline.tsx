@@ -18,31 +18,15 @@ export default function Scene4Pipeline() {
 
       <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center gap-14">
         {/* Desktop: horizontal pipeline */}
-        <div className="hidden md:flex items-start w-full justify-between relative pt-8">
+        <div className="hidden md:flex items-start w-full justify-between relative pt-4">
           {nodes.map((node, i) => {
             const Icon = node.icon;
             return (
               <div
                 key={node.label}
                 className="flex flex-col items-center relative"
-                style={{ minWidth: '130px' }}
+                style={{ minWidth: '100px', maxWidth: '120px' }}
               >
-                {/* Tag above */}
-                <motion.div
-                  className="absolute -top-14 text-center whitespace-nowrap font-body text-[11px] px-3 py-1.5 rounded-full"
-                  style={{
-                    color: 'var(--accent-cyan)',
-                    background: 'rgba(0, 229, 255, 0.06)',
-                    border: '1px solid rgba(0, 229, 255, 0.12)',
-                  }}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.25, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                  viewport={{ once: false }}
-                >
-                  {node.tag}
-                </motion.div>
-
                 {/* Node circle */}
                 <motion.div
                   className="w-12 h-12 rounded-full flex items-center justify-center relative z-10"
@@ -72,13 +56,25 @@ export default function Scene4Pipeline() {
                   />
                 </motion.div>
 
-                {/* Label below */}
+                {/* Label */}
                 <span
-                  className="mt-3.5 font-body text-xs font-medium tracking-wide"
+                  className="mt-3 font-body text-xs font-medium tracking-wide text-center"
                   style={{ color: 'var(--text-primary)' }}
                 >
                   {node.label}
                 </span>
+
+                {/* Tag below label */}
+                <motion.span
+                  className="mt-1 font-body text-[10px] text-center leading-tight px-1"
+                  style={{ color: 'var(--accent-cyan)' }}
+                  initial={{ opacity: 0, y: 6 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + i * 0.25, duration: 0.5 }}
+                  viewport={{ once: false }}
+                >
+                  {node.tag}
+                </motion.span>
 
                 {/* Connecting dashed line */}
                 {i < nodes.length - 1 && (
