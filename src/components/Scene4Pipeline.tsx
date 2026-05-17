@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { Lightbulb, Mic, Sliders, Megaphone, Globe } from 'lucide-react';
+import { Lightbulb, Mic, Sliders, Megaphone, Globe, Users } from 'lucide-react';
 import ParticleCanvas from './ParticleCanvas';
 
 const nodes = [
   { label: 'Ideation', icon: Lightbulb, tag: 'Define Your Vision' },
-  { label: 'Recording', icon: Mic, tag: 'Capture Your Sound' },
-  { label: 'Mixing & Mastering', icon: Sliders, tag: 'Polish & Perfect' },
+  { label: 'Recording', icon: Mic, tag: 'Match With the Right Studio' },
+  { label: 'Mixing & Mastering', icon: Sliders, tag: 'Your Mix, Handled by Experts' },
   { label: 'Promotion & Design', icon: Megaphone, tag: 'Build Your Release' },
-  { label: 'Distribution', icon: Globe, tag: 'Reach the World' },
+  { label: 'Distribution', icon: Globe, tag: 'Your Music, Everywhere It Belongs' },
+  { label: 'Community', icon: Users, tag: 'The Global Industry, All in One Place' },
 ];
 
 export default function Scene4Pipeline() {
