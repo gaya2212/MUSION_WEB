@@ -37,6 +37,7 @@ html {
   scroll-behavior: smooth;
   background: #000000;
   color: var(--text-primary);
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -195,4 +196,6 @@ body::after {
   justify-content: center;
   overflow: hidden;
   background: #000000;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
