@@ -1,43 +1,92 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import logoSrc from '../assets/musion-logo.png';
+import WaitlistModal from './WaitlistModal';
 
 export default function MusionLogo() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <motion.div
-      className="fixed top-5 left-6 md:top-7 md:left-8 z-50 flex flex-col items-center"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-    >
-      {/* Butterfly icon — crop to top 76% of image */}
-      <div style={{ width: 62, height: 48, overflow: 'hidden' }}>
-        <img
-          src={logoSrc}
-          alt="Musion icon"
-          style={{ width: '62px', height: 'auto', display: 'block' }}
-        />
-      </div>
+    <>
+      <motion.header
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0 clamp(20px, 5vw, 56px)',
+          height: 64,
+          background: 'rgba(0,0,0,0.55)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+        }}
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+      >
+        {/* Left: MUSION text + small butterfly icon after the N */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          {/* MUSION text — bottom portion of PNG */}
+          <div style={{ width: 90, height: 22, overflow: 'hidden', position: 'relative' }}>
+            <img
+              src={logoSrc}
+              alt="MUSION"
+              style={{
+                width: '90px',
+                height: 'auto',
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                filter: 'invert(1) grayscale(1) brightness(3)',
+                display: 'block',
+              }}
+            />
+          </div>
+          {/* Small butterfly icon after the N */}
+          <div style={{ width: 18, height: 14, overflow: 'hidden', marginBottom: 2 }}>
+            <img
+              src={logoSrc}
+              alt="Musion icon"
+              style={{
+                width: '18px',
+                height: 'auto',
+                display: 'block',
+                filter: 'invert(1) grayscale(1) brightness(2) opacity(0.7)',
+              }}
+            />
+          </div>
+        </div>
 
-      {/* Gap */}
-      <div style={{ height: 5 }} />
-
-      {/* MUSION text — bottom 22% of image, inverted to white */}
-      <div style={{ width: 70, height: 17, overflow: 'hidden', position: 'relative' }}>
-        <img
-          src={logoSrc}
-          alt="MUSION"
+        {/* Right: Join the Waitlist button */}
+        <motion.button
+          onClick={() => setModalOpen(true)}
           style={{
-            width: '70px',
-            height: 'auto',
-            position: 'absolute',
-            bottom: 0,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            filter: 'invert(1) grayscale(1) brightness(3)',
-            display: 'block',
+            background: 'linear-gradient(135deg, #00e5ff, #e040fb)',
+            color: '#06060c',
+            fontFamily: 'var(--font-body)',
+            fontWeight: 600,
+            fontSize: '0.8rem',
+            letterSpacing: '0.02em',
+            borderRadius: 999,
+            padding: '8px 22px',
+            border: 'none',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
           }}
-        />
-      </div>
-    </motion.div>
+          whileHover={{ scale: 1.04, boxShadow: '0 0 18px rgba(0,229,255,0.25)' }}
+          whileTap={{ scale: 0.97 }}
+        >
+          Join the Waitlist
+        </motion.button>
+      </motion.header>
+
+      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
+    </>
   );
 }
+

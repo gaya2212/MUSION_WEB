@@ -199,3 +199,8 @@ body::after {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+/* First scene sits below the fixed navbar */
+.scene-section:first-of-type {
+  padding-top: 64px;
+}
