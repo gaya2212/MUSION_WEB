@@ -12,8 +12,9 @@ export default {
         'text-dim': '#c8b6db',
       },
       fontFamily: {
-        body: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', '"Helvetica Neue"', 'sans-serif'],
-        mono: ['"Space Mono"', 'monospace'],
+        display: ['"IBM Plex Serif"', 'Georgia', 'serif'],
+        body: ['"IBM Plex Sans"', '-apple-system', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', '"Courier New"', 'monospace'],
       },
       backgroundImage: {
         'gradient-musion': 'linear-gradient(135deg, #1a0a3a 0%, #2d1b4e 50%, #1a0a3a 100%)',

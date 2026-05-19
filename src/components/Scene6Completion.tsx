@@ -94,7 +94,7 @@ export default function Scene6Completion() {
 
         <div className="flex flex-col items-center gap-4 max-w-lg text-center">
           <motion.p
-            className="font-body font-light leading-relaxed"
+            className="font-body font-normal leading-relaxed"
             style={{
               color: 'var(--text-primary)',
               fontSize: 'clamp(16px, 2vw, 22px)',

@@ -22,7 +22,7 @@ export default function Scene1Hero() {
         style={{ opacity: textOpacity, y: textY }}
       >
         <motion.h1
-          className="font-body font-extralight leading-[1.1] tracking-tight"
+          className="font-display font-semibold leading-[1.15] tracking-tight"
           style={{ fontSize: 'clamp(36px, 5.5vw, 68px)' }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function Scene1Hero() {
           style={{ opacity: subtitleOpacity }}
         >
           <motion.h1
-            className="font-body font-extralight leading-[1.1] tracking-tight mt-3"
+            className="font-display font-semibold leading-[1.15] tracking-tight mt-3"
             style={{ fontSize: 'clamp(36px, 5.5vw, 68px)' }}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

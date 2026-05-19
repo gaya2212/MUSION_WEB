@@ -82,7 +82,7 @@ export default function Scene3Turning() {
         {/* The text */}
         {phase >= 2 && (
           <motion.p
-            className="font-body font-light text-center px-8 max-w-xl"
+            className="font-body font-normal text-center px-8 max-w-xl"
             style={{
               color: 'var(--text-primary)',
               fontSize: 'clamp(18px, 2.5vw, 26px)',

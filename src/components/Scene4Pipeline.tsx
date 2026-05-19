@@ -136,7 +136,7 @@ export default function Scene4Pipeline() {
         </div>
 
         <motion.p
-          className="font-body text-center max-w-2xl font-light px-4 leading-relaxed"
+          className="font-body text-center max-w-2xl font-normal px-4 leading-relaxed"
           style={{
             color: 'var(--text-primary)',
             fontSize: 'clamp(14px, 1.4vw, 18px)',

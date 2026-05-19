@@ -24,7 +24,7 @@ export default function Scene5Intelligence() {
           {blocks.map((block, i) => (
             <div key={block.text} className="flex flex-col items-start w-full">
               <motion.p
-                className="font-body font-light leading-relaxed"
+                className="font-body font-normal leading-relaxed"
                 style={{
                   color: 'var(--text-primary)',
                   fontSize: 'clamp(16px, 2vw, 22px)',
