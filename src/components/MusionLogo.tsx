@@ -42,7 +42,7 @@ export default function MusionLogo() {
                 position: 'absolute',
                 bottom: 0,
                 left: 0,
-                filter: 'invert(1) grayscale(1) brightness(3)',
+                filter: 'brightness(1.1)',
                 display: 'block',
               }}
             />
@@ -56,7 +56,7 @@ export default function MusionLogo() {
                 width: '18px',
                 height: 'auto',
                 display: 'block',
-                filter: 'invert(1) grayscale(1) brightness(2) opacity(0.7)',
+                filter: 'brightness(1.1) opacity(0.9)',
               }}
             />
           </div>
