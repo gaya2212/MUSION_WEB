@@ -38,7 +38,7 @@ export default function Scene3Turning() {
   return (
     <section ref={sectionRef} className="scene-section">
       {phase >= 4 && (
-        <ParticleCanvas mode="burst" particleCount={25} maxOpacity={0.45} />
+        <ParticleCanvas mode="burst" particleCount={12} maxOpacity={0.15} />
       )}
 
       <div className="relative z-10 flex flex-col items-center gap-8">
@@ -51,12 +51,10 @@ export default function Scene3Turning() {
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <div
-              className={`w-3 h-3 rounded-full ${phase >= 1 && phase < 4 ? 'animate-pulse-glow' : ''}`}
+              className="w-3 h-3 rounded-full"
               style={{
                 backgroundColor: 'var(--accent-cyan)',
-                boxShadow: phase >= 4
-                  ? '0 0 20px var(--glow-cyan), 0 0 60px rgba(0, 229, 255, 0.15)'
-                  : undefined,
+                opacity: 0.85,
               }}
             />
 

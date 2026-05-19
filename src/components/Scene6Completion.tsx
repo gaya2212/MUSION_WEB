@@ -123,7 +123,6 @@ export default function Scene6Completion() {
               style={{
                 color: 'var(--accent-cyan)',
                 fontWeight: 600,
-                textShadow: '0 0 30px rgba(0, 229, 255, 0.25)',
               }}
             >
               actually gets finished

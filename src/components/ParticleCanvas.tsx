@@ -48,9 +48,9 @@ export default function ParticleCanvas({
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          size: Math.random() * 1.8 + 0.4,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: (Math.random() - 0.5) * 0.12,
+          size: Math.random() * 1.2 + 0.3,
           opacity: baseOpacity,
           baseOpacity,
           angle: 0,
@@ -76,17 +76,17 @@ export default function ParticleCanvas({
           radius: r,
           centerX: cx,
           centerY: cy,
-          angularSpeed: (Math.random() * 0.003 + 0.0008) * (Math.random() > 0.5 ? 1 : -1),
+          angularSpeed: (Math.random() * 0.0015 + 0.0004) * (Math.random() > 0.5 ? 1 : -1),
         });
       } else if (mode === 'burst') {
         const a = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 0.6 + 0.15;
+        const speed = Math.random() * 0.3 + 0.08;
         particles.push({
           x: w / 2,
           y: h / 2,
           vx: Math.cos(a) * speed,
           vy: Math.sin(a) * speed,
-          size: Math.random() * 2 + 0.5,
+          size: Math.random() * 1.2 + 0.4,
           opacity: baseOpacity,
           baseOpacity,
           angle: 0,
@@ -99,9 +99,9 @@ export default function ParticleCanvas({
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.15,
-          vy: (Math.random() - 0.5) * 0.15,
-          size: Math.random() * 2 + 0.8,
+          vx: (Math.random() - 0.5) * 0.08,
+          vy: (Math.random() - 0.5) * 0.08,
+          size: Math.random() * 1.4 + 0.6,
           opacity: baseOpacity,
           baseOpacity,
           angle: 0,
@@ -141,7 +141,7 @@ export default function ParticleCanvas({
     resize();
     window.addEventListener('resize', resize);
 
-    const connectionDist = mode === 'constellation' ? 130 : 0;
+    const connectionDist = mode === 'constellation' ? 100 : 0;
 
     const animate = () => {
       const { w, h } = sizeRef.current;
@@ -169,7 +169,7 @@ export default function ParticleCanvas({
         }
 
         // Subtle opacity breathing
-        p.opacity = p.baseOpacity + Math.sin(Date.now() * 0.001 + p.angle) * p.baseOpacity * 0.3;
+        p.opacity = p.baseOpacity + Math.sin(Date.now() * 0.0008 + p.angle) * p.baseOpacity * 0.12;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -185,7 +185,7 @@ export default function ParticleCanvas({
             const dy = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < connectionDist) {
-              const alpha = (1 - dist / connectionDist) * 0.12;
+              const alpha = (1 - dist / connectionDist) * 0.07;
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);

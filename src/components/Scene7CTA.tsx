@@ -9,7 +9,7 @@ export default function Scene7CTA() {
 
   return (
     <section className="scene-section">
-      <ParticleCanvas mode="orbital" particleCount={40} maxOpacity={0.25} />
+      <ParticleCanvas mode="orbital" particleCount={16} maxOpacity={0.1} />
 
       <div className="relative z-10 flex flex-col items-center gap-7 px-6">
         {/* Logo with pulsing glow */}
@@ -20,23 +20,13 @@ export default function Scene7CTA() {
           transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: false }}
         >
-          {/* Glow backdrop */}
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl"
-            style={{
-              background: 'radial-gradient(circle, rgba(0,229,255,0.12) 0%, transparent 70%)',
-              animation: 'pulse-glow 4s ease-in-out infinite',
-            }}
-          />
-
-          {/* MUSION in real logo font — PNG text portion, inverted to white, glowing */}
+          {/* MUSION in real logo font — PNG text portion, inverted to white */}
           <div style={{
             position: 'relative',
             width: 'clamp(220px, 55vw, 380px)',
-            /* height = width × (418 × 0.22) / 393 ≈ width × 0.234 */
             height: 'clamp(52px, 13vw, 89px)',
             overflow: 'hidden',
-            filter: 'drop-shadow(0 0 20px rgba(0, 229, 255, 0.5)) drop-shadow(0 0 50px rgba(0, 229, 255, 0.2))',
+            filter: 'drop-shadow(0 0 10px rgba(0, 229, 255, 0.2))',
           }}>
             <img
               src={logoSrc}
@@ -79,8 +69,8 @@ export default function Scene7CTA() {
           transition={{ delay: 0.7, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: false }}
           whileHover={{
-            scale: 1.06,
-            boxShadow: '0 0 40px rgba(0,229,255,0.4), 0 0 80px rgba(224,64,251,0.2)',
+            scale: 1.03,
+            boxShadow: '0 0 20px rgba(0,229,255,0.2)',
           }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setModalOpen(true)}

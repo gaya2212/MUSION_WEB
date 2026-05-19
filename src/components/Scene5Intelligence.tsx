@@ -16,7 +16,7 @@ export default function Scene5Intelligence() {
         <div className="w-full md:w-[40%] h-[280px] md:h-[420px] relative rounded-2xl overflow-hidden"
           style={{ border: '1px solid rgba(255,255,255,0.04)' }}
         >
-          <ParticleCanvas mode="constellation" particleCount={35} maxOpacity={0.5} />
+          <ParticleCanvas mode="constellation" particleCount={20} maxOpacity={0.22} />
         </div>
 
         {/* Right: text blocks */}
@@ -67,7 +67,7 @@ export default function Scene5Intelligence() {
             style={{
               color: 'var(--accent-cyan)',
               fontSize: 'clamp(18px, 2.2vw, 26px)',
-              textShadow: '0 0 30px rgba(0, 229, 255, 0.2)',
+
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

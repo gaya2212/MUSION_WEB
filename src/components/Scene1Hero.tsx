@@ -15,7 +15,7 @@ export default function Scene1Hero() {
 
   return (
     <section ref={ref} className="scene-section">
-      <ParticleCanvas mode="drift" particleCount={50} maxOpacity={0.25} />
+      <ParticleCanvas mode="drift" particleCount={20} maxOpacity={0.1} />
 
       <motion.div
         className="relative z-10 text-center px-6 max-w-4xl"
@@ -48,7 +48,7 @@ export default function Scene1Hero() {
               className="font-normal"
               style={{
                 color: 'var(--accent-cyan)',
-                textShadow: '0 0 40px rgba(0, 229, 255, 0.3)',
+
               }}
             >
               easy part
