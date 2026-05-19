@@ -71,9 +71,9 @@ export default function Scene1Hero() {
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1, transition: { duration: 0.85, ease: [0.25, 0.1, 0.25, 1] } }}
-              exit={{ opacity: 0, scale: 1.03, transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] } }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.9, ease: 'easeInOut' } }}
+              exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeInOut' } }}
               style={{
                 position: 'absolute',
                 width: '100%',
