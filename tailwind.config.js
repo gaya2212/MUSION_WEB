@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-deep': '#05070d',
-        'bg-card': '#0e1118',
-        'accent-cyan': '#38b6cc',
-        'accent-magenta': '#d4935a',
-        'text-primary': '#ededf0',
-        'text-dim': '#7a7a8c',
+        'bg-deep': '#1a0a3a',
+        'bg-card': '#2d1b4e',
+        'accent-cyan': '#00d9ff',
+        'accent-magenta': '#ff1199',
+        'text-primary': '#ffffff',
+        'text-dim': '#c8b6db',
       },
       fontFamily: {
         display: ['"IBM Plex Serif"', 'Georgia', 'serif'],

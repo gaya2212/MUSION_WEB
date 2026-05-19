@@ -59,7 +59,7 @@ export default function WaitlistModal({ onClose }: Props) {
       <motion.div
         key="backdrop"
         className="fixed inset-0 z-50 flex items-center justify-center px-4"
-        style={{ background: 'rgba(5, 7, 13, 0.9)', backdropFilter: 'blur(12px)' }}
+        style={{ background: 'rgba(10, 4, 26, 0.85)', backdropFilter: 'blur(12px)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -74,7 +74,7 @@ export default function WaitlistModal({ onClose }: Props) {
             border: '1px solid rgba(255,255,255,0.08)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
-                boxShadow: '0 0 80px rgba(56,182,204,0.06), 0 24px 64px rgba(0,0,0,0.5)',
+            boxShadow: '0 0 80px rgba(0,217,255,0.07), 0 24px 64px rgba(0,0,0,0.5)',
           }}
           initial={{ opacity: 0, scale: 0.93, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function WaitlistModal({ onClose }: Props) {
               >
                 <motion.div
                   className="flex items-center justify-center w-14 h-14 rounded-full"
-                  style={{ background: 'rgba(56,182,204,0.1)', border: '1.5px solid rgba(56,182,204,0.3)' }}
+                  style={{ background: 'rgba(0,217,255,0.1)', border: '1.5px solid rgba(0,217,255,0.3)' }}
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
@@ -166,7 +166,7 @@ export default function WaitlistModal({ onClose }: Props) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     style={inputStyle}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(56,182,204,0.4)')}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(0,217,255,0.4)')}
                     onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)')}
                   />
                 </div>
@@ -182,7 +182,7 @@ export default function WaitlistModal({ onClose }: Props) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     style={inputStyle}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(56,182,204,0.4)')}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(0,217,255,0.4)')}
                     onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)')}
                   />
                 </div>
@@ -213,12 +213,12 @@ export default function WaitlistModal({ onClose }: Props) {
                     background:
                       submitState === 'loading'
                         ? 'rgba(255,255,255,0.1)'
-                        : 'linear-gradient(135deg, #38b6cc, #d4935a)',
+                        : 'linear-gradient(135deg, #00e5ff, #e040fb)',
                     color: submitState === 'loading' ? 'var(--text-dim)' : '#06060c',
                     letterSpacing: '0.02em',
                     transition: 'background 0.3s, box-shadow 0.3s',
                   }}
-                  whileHover={submitState !== 'loading' ? { scale: 1.03, boxShadow: '0 0 30px rgba(56,182,204,0.28)' } : {}}
+                  whileHover={submitState !== 'loading' ? { scale: 1.03, boxShadow: '0 0 30px rgba(0,229,255,0.35)' } : {}}
                   whileTap={submitState !== 'loading' ? { scale: 0.97 } : {}}
                 >
                   {submitState === 'loading' ? 'Submitting…' : 'Join the Waitlist'}

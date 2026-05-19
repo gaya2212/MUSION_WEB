@@ -67,7 +67,7 @@ export default function Scene5Intelligence() {
             style={{
               color: 'var(--accent-cyan)',
               fontSize: 'clamp(18px, 2.2vw, 26px)',
-              textShadow: '0 0 30px rgba(56, 182, 204, 0.15)',
+              textShadow: '0 0 30px rgba(0, 229, 255, 0.2)',
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

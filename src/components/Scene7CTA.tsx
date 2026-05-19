@@ -24,7 +24,7 @@ export default function Scene7CTA() {
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl"
             style={{
-              background: 'radial-gradient(circle, rgba(56,182,204,0.09) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(0,229,255,0.12) 0%, transparent 70%)',
               animation: 'pulse-glow 4s ease-in-out infinite',
             }}
           />
@@ -36,7 +36,7 @@ export default function Scene7CTA() {
             /* height = width × (418 × 0.22) / 393 ≈ width × 0.234 */
             height: 'clamp(52px, 13vw, 89px)',
             overflow: 'hidden',
-            filter: 'drop-shadow(0 0 20px rgba(56, 182, 204, 0.4)) drop-shadow(0 0 50px rgba(56, 182, 204, 0.15))',
+            filter: 'drop-shadow(0 0 20px rgba(0, 229, 255, 0.5)) drop-shadow(0 0 50px rgba(0, 229, 255, 0.2))',
           }}>
             <img
               src={logoSrc}
@@ -70,7 +70,7 @@ export default function Scene7CTA() {
         <motion.button
           className="mt-3 font-body font-semibold text-sm md:text-base rounded-full px-12 py-4 cursor-pointer relative overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #38b6cc, #d4935a)',
+            background: 'linear-gradient(135deg, #00e5ff, #e040fb)',
             color: '#06060c',
             letterSpacing: '0.02em',
           }}
@@ -80,7 +80,7 @@ export default function Scene7CTA() {
           viewport={{ once: false }}
           whileHover={{
             scale: 1.06,
-            boxShadow: '0 0 40px rgba(56,182,204,0.3), 0 0 80px rgba(212,147,90,0.15)',
+            boxShadow: '0 0 40px rgba(0,229,255,0.4), 0 0 80px rgba(224,64,251,0.2)',
           }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setModalOpen(true)}

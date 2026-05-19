@@ -55,7 +55,7 @@ export default function Scene3Turning() {
               style={{
                 backgroundColor: 'var(--accent-cyan)',
                 boxShadow: phase >= 4
-                  ? '0 0 20px var(--glow-cyan), 0 0 60px rgba(56, 182, 204, 0.12)'
+                  ? '0 0 20px var(--glow-cyan), 0 0 60px rgba(0, 229, 255, 0.15)'
                   : undefined,
               }}
             />

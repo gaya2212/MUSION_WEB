@@ -45,9 +45,9 @@ export default function Scene4Pipeline() {
                   <motion.div
                     className="absolute inset-[-2px] rounded-full"
                     style={{
-                    background: 'radial-gradient(circle, rgba(56,182,204,0.1) 0%, transparent 70%)',
-                    boxShadow: '0 0 24px rgba(56,182,204,0.18), inset 0 0 12px rgba(56,182,204,0.07)',
-                    border: '2px solid rgba(56,182,204,0.22)',
+                      background: 'radial-gradient(circle, rgba(0,229,255,0.15) 0%, transparent 70%)',
+                      boxShadow: '0 0 24px rgba(0,229,255,0.25), inset 0 0 12px rgba(0,229,255,0.1)',
+                      border: '2px solid rgba(0,229,255,0.3)',
                     }}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -115,9 +115,9 @@ export default function Scene4Pipeline() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
                   style={{
-                    border: '2px solid rgba(56,182,204,0.2)',
-                    background: 'rgba(56,182,204,0.05)',
-                    boxShadow: '0 0 16px rgba(56,182,204,0.12)',
+                    border: '2px solid rgba(0,229,255,0.25)',
+                    background: 'rgba(0,229,255,0.06)',
+                    boxShadow: '0 0 16px rgba(0,229,255,0.15)',
                   }}
                 >
                   <Icon size={16} style={{ color: 'var(--accent-cyan)' }} />
