@@ -28,7 +28,7 @@ export default function Scene1Hero() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setActive((prev: number) => (prev + 1) % slides.length), 5000);
+    const id = setInterval(() => setActive((prev: number) => (prev + 1) % slides.length), 3500);
     return () => clearInterval(id);
   }, [paused]);
 
