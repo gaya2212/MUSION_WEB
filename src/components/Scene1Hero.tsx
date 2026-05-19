@@ -109,22 +109,22 @@ export default function Scene1Hero() {
           </AnimatePresence>
         </div>
 
-        {/* Dot navigation */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 36 }}>
+        {/* Vertical dot navigation */}
+        <div style={{ position: 'absolute', right: 'clamp(20px, 4vw, 48px)', top: '50%', transform: 'translateY(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slide ${i + 1}`}
               style={{
-                height: 6,
-                width: i === active ? 24 : 6,
+                width: 6,
+                height: i === active ? 24 : 6,
                 borderRadius: 3,
                 background: i === active ? 'var(--accent-cyan)' : 'rgba(255,255,255,0.18)',
                 border: 'none',
                 padding: 0,
                 cursor: 'pointer',
-                transition: 'width 0.4s ease, background 0.3s ease',
+                transition: 'height 0.4s ease, background 0.3s ease',
               }}
             />
           ))}
