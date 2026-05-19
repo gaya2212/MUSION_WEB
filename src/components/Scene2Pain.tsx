@@ -69,8 +69,8 @@ export default function Scene2Pain() {
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 group-hover:scale-110"
                     style={{
-                      background: 'rgba(0, 229, 255, 0.06)',
-                      border: '1px solid rgba(0, 229, 255, 0.1)',
+                      background: 'rgba(56, 182, 204, 0.05)',
+                      border: '1px solid rgba(56, 182, 204, 0.12)',
                     }}
                   >
                     <Icon

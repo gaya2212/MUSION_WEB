@@ -53,8 +53,8 @@ export default function Scene6Completion() {
             />
             <defs>
               <linearGradient id="completionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00e5ff" />
-                <stop offset="100%" stopColor="#e040fb" />
+                <stop offset="0%" stopColor="#38b6cc" />
+                <stop offset="100%" stopColor="#d4935a" />
               </linearGradient>
             </defs>
           </svg>
@@ -63,7 +63,7 @@ export default function Scene6Completion() {
           <motion.div
             className="absolute inset-0 rounded-full"
             style={{
-              background: `radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%)`,
+              background: `radial-gradient(circle, rgba(56,182,204,0.06) 0%, transparent 70%)`,
             }}
           />
 
@@ -79,7 +79,7 @@ export default function Scene6Completion() {
                 <motion.path
                   d="M14 28 L24 38 L42 18"
                   fill="none"
-                  stroke="#00e5ff"
+                  stroke="#38b6cc"
                   strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -123,7 +123,7 @@ export default function Scene6Completion() {
               style={{
                 color: 'var(--accent-cyan)',
                 fontWeight: 600,
-                textShadow: '0 0 30px rgba(0, 229, 255, 0.25)',
+                textShadow: '0 0 30px rgba(56, 182, 204, 0.18)',
               }}
             >
               actually gets finished

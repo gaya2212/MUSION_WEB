@@ -48,7 +48,7 @@ export default function Scene1Hero() {
               className="font-normal"
               style={{
                 color: 'var(--accent-cyan)',
-                textShadow: '0 0 40px rgba(0, 229, 255, 0.3)',
+                textShadow: '0 0 40px rgba(56, 182, 204, 0.25)',
               }}
             >
               easy part
