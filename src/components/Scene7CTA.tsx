@@ -44,13 +44,37 @@ export default function Scene7CTA() {
           </div>
         </motion.div>
 
+        <div className="max-w-3xl text-center">
+          <motion.p
+            className="font-body text-lg md:text-2xl leading-relaxed"
+            style={{ color: 'var(--text-primary)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.8 }}
+            viewport={{ once: false }}
+          >
+            The world doesn't need another place to book a service.
+          </motion.p>
+
+          <motion.p
+            className="font-body text-lg md:text-2xl leading-relaxed mt-2"
+            style={{ color: 'var(--text-primary)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            viewport={{ once: false }}
+          >
+            It needs a place where music actually gets finished.
+          </motion.p>
+        </div>
+
         {/* Tagline */}
         <motion.p
           className="font-mono text-[11px] md:text-xs text-center tracking-wider"
           style={{ color: 'var(--text-dim)' }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          transition={{ delay: 0.65, duration: 0.8 }}
           viewport={{ once: false }}
         >
           The Production Intelligence Layer for Independent Artists
@@ -66,7 +90,7 @@ export default function Scene7CTA() {
           }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ delay: 0.85, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: false }}
           whileHover={{
             scale: 1.03,
@@ -75,22 +99,10 @@ export default function Scene7CTA() {
           whileTap={{ scale: 0.97 }}
           onClick={() => setModalOpen(true)}
         >
-          Join the Waitlist
+          Join the Waitlist - It's Free
         </motion.button>
 
         {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
-
-        {/* Cities */}
-        <motion.p
-          className="font-body text-[11px] mt-2 tracking-wide"
-          style={{ color: 'var(--text-dim)' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.7 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          viewport={{ once: false }}
-        >
-          Launching in LA &middot; NYC &middot; Nashville &middot; Atlanta
-        </motion.p>
       </div>
     </section>
   );

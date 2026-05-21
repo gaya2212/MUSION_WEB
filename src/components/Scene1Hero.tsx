@@ -1,9 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ParticleCanvas from './ParticleCanvas';
+import WaitlistModal from './WaitlistModal';
 
 export default function Scene1Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -11,6 +13,14 @@ export default function Scene1Hero() {
   });
   const wrapperOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
   const wrapperY = useTransform(scrollYProgress, [0, 0.45], [0, -60]);
+
+  const scrollToHowItWorks = () => {
+    const sections = document.querySelectorAll('section');
+    const pipelineSection = sections[2];
+    if (pipelineSection) {
+      pipelineSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section ref={ref} className="scene-section">
@@ -20,32 +30,74 @@ export default function Scene1Hero() {
         className="relative z-10 flex flex-col items-center justify-center w-full"
         style={{ opacity: wrapperOpacity, y: wrapperY }}
       >
-        <div style={{ width: '100%', textAlign: 'center', padding: '0 24px' }}>
+        <div style={{ width: '100%', textAlign: 'center', padding: '0 24px', maxWidth: 980 }}>
           <h1
             style={{
               fontSize: 'clamp(30px, 4.5vw, 62px)',
-              fontWeight: 300,
+              fontWeight: 600,
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
               color: 'var(--text-primary)',
-              fontFamily: 'var(--font-body)',
+              fontFamily: 'var(--font-display)',
               margin: 0,
             }}
           >
-            You wrote the song.
+            Your music deserves to be finished
           </h1>
           <p
             style={{
               fontSize: 'clamp(16px, 2vw, 28px)',
               fontWeight: 300,
-              marginTop: '0.6em',
+              marginTop: '1em',
               lineHeight: 1.4,
               fontFamily: 'var(--font-body)',
               color: 'var(--text-dim)',
+              maxWidth: 760,
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
           >
-            That was the <span style={{ color: 'var(--accent-cyan)' }}>easy part</span>.
+            Musion is the production intelligence layer that takes independent artists from first idea to finished, released music - with the right professionals, matched to your project, at every stage.
           </p>
+
+          <div
+            style={{
+              display: 'flex',
+              gap: 14,
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              marginTop: 32,
+            }}
+          >
+            <motion.button
+              className="font-body font-semibold text-sm md:text-base rounded-full px-10 py-4 cursor-pointer"
+              style={{
+                background: 'linear-gradient(135deg, #00e5ff, #e040fb)',
+                color: '#06060c',
+                letterSpacing: '0.02em',
+              }}
+              whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(0,229,255,0.2)' }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setModalOpen(true)}
+            >
+              Join the Waitlist
+            </motion.button>
+
+            <motion.button
+              className="font-body font-semibold text-sm md:text-base rounded-full px-10 py-4 cursor-pointer"
+              style={{
+                background: 'rgba(255,255,255,0.03)',
+                color: 'var(--text-primary)',
+                letterSpacing: '0.02em',
+                border: '1px solid rgba(255,255,255,0.12)',
+              }}
+              whileHover={{ scale: 1.03, borderColor: 'rgba(0,229,255,0.35)' }}
+              whileTap={{ scale: 0.97 }}
+              onClick={scrollToHowItWorks}
+            >
+              See How It Works
+            </motion.button>
+          </div>
         </div>
 
         {/* Scroll indicator */}
@@ -68,6 +120,8 @@ export default function Scene1Hero() {
           </div>
         </motion.div>
       </motion.div>
+
+      {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
     </section>
   );
 }

@@ -4,22 +4,22 @@ import { MessageSquareOff, DollarSign, RefreshCw, FolderClock } from 'lucide-rea
 const painPoints = [
   {
     title: 'The producer who ghosted',
-    subtitle: 'Weeks of silence. No replies. Just gone.',
+    body: "You found someone promising. Sent the files. Waited three weeks. Then two more. The project is still sitting there, half-built, in someone else's hands.",
     icon: MessageSquareOff,
   },
   {
     title: 'The studio that broke your budget',
-    subtitle: 'Hidden fees. Overtime charges. No transparency.',
+    body: "The hourly rate sounded fine. The hidden fees didn't. By the time you were done, you'd spent twice what you planned and still didn't have a mix.",
     icon: DollarSign,
   },
   {
     title: 'The mix that came back wrong. Three times.',
-    subtitle: 'Revision loops that drain your creative energy.',
+    body: "You gave notes. They said they got it. You listened back and it still wasn't right. No accountability. No structure. Just endless back and forth going nowhere.",
     icon: RefreshCw,
   },
   {
     title: 'The EP sitting in a folder from 8 months ago',
-    subtitle: 'Started with fire. Now collecting digital dust.',
+    body: "You started with fire. The sessions were good. Then one thing fell through, then another, and now the whole project lives in a folder you haven't opened since.",
     icon: FolderClock,
   },
 ];
@@ -49,7 +49,18 @@ const cardVariants = {
 export default function Scene2Pain() {
   return (
     <section className="scene-section">
-      <div className="relative z-10 w-full max-w-4xl px-6">
+      <div className="relative z-10 w-full max-w-6xl px-6 py-8 flex flex-col items-center">
+        <motion.p
+          className="text-center mb-4 font-body text-sm tracking-[0.16em] uppercase"
+          style={{ color: 'var(--accent-cyan)' }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: false }}
+        >
+          Sound familiar?
+        </motion.p>
+
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-5"
           variants={containerVariants}
@@ -87,10 +98,10 @@ export default function Scene2Pain() {
                       {point.title}
                     </h3>
                     <p
-                      className="font-body text-xs leading-relaxed"
+                      className="font-body text-sm leading-relaxed"
                       style={{ color: 'var(--text-dim)' }}
                     >
-                      {point.subtitle}
+                      {point.body}
                     </p>
                   </div>
                 </div>
@@ -99,16 +110,28 @@ export default function Scene2Pain() {
           })}
         </motion.div>
 
-        <motion.p
-          className="text-center mt-10 font-body text-sm tracking-wide"
-          style={{ color: 'var(--text-dim)' }}
-          initial={{ opacity: 0, y: 15 }}
+        <motion.div
+          className="text-center mt-10 max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: false }}
+          viewport={{ once: false, margin: '-80px' }}
         >
-          Sound familiar?
-        </motion.p>
+          <p
+            className="font-body text-lg md:text-2xl leading-relaxed"
+            style={{ color: 'var(--text-primary)' }}
+          >
+            We built Musion because this story is too common.
+          </p>
+          <p
+            className="font-body text-base md:text-xl leading-relaxed mt-3"
+            style={{ color: 'var(--text-dim)' }}
+          >
+            Not because artists lack talent.
+            <br />
+            Because the industry has never given them the infrastructure to finish.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

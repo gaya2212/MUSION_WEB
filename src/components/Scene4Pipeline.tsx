@@ -1,22 +1,38 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, Mic, Sliders, Megaphone, Globe, Users } from 'lucide-react';
 import ParticleCanvas from './ParticleCanvas';
+import WaitlistModal from './WaitlistModal';
 
 const nodes = [
   { label: 'Ideation', icon: Lightbulb, tag: 'Define Your Vision' },
-  { label: 'Recording', icon: Mic, tag: 'Match With the Right Studio' },
+  { label: 'Recording', icon: Mic, tag: 'Matched With the Right Studio' },
   { label: 'Mixing & Mastering', icon: Sliders, tag: 'Your Mix, Handled by Experts' },
-  { label: 'Promotion & Design', icon: Megaphone, tag: 'Build Your Release' },
+  { label: 'Promotion & Design', icon: Megaphone, tag: 'Assets Built Around Your Release' },
   { label: 'Distribution', icon: Globe, tag: 'Your Music, Everywhere It Belongs' },
   { label: 'Community', icon: Users, tag: 'The Global Industry, All in One Place' },
 ];
 
 export default function Scene4Pipeline() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className="scene-section">
       <ParticleCanvas mode="orbital" particleCount={30} maxOpacity={0.2} />
 
-      <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center gap-14">
+      <div className="relative z-10 w-full max-w-6xl px-6 py-8 flex flex-col items-center gap-10 md:gap-14">
+        <div className="text-center max-w-3xl">
+          <h2
+            style={{
+              color: 'var(--text-primary)',
+              fontSize: 'clamp(30px, 4vw, 52px)',
+              lineHeight: 1.12,
+            }}
+          >
+            Every stage. Structured, tracked, and protected.
+          </h2>
+        </div>
+
         {/* Desktop: horizontal pipeline */}
         <div className="hidden md:flex items-start w-full justify-between relative pt-4">
           {nodes.map((node, i) => {
@@ -146,8 +162,28 @@ export default function Scene4Pipeline() {
           transition={{ delay: 1.5, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: false }}
         >
-          One platform. Idea to finished product. Every stage structured, tracked, and protected.
+          One platform. Idea to finished product. Nothing falls through the cracks.
         </motion.p>
+
+        <motion.button
+          className="font-body font-semibold text-sm md:text-base rounded-full px-10 py-4 cursor-pointer"
+          style={{
+            background: 'linear-gradient(135deg, #00e5ff, #e040fb)',
+            color: '#06060c',
+            letterSpacing: '0.02em',
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.7, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: false }}
+          whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(0,229,255,0.2)' }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => setModalOpen(true)}
+        >
+          Join the Waitlist
+        </motion.button>
+
+        {modalOpen && <WaitlistModal onClose={() => setModalOpen(false)} />}
       </div>
     </section>
   );

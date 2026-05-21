@@ -1,15 +1,13 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import Scene1Hero from './components/Scene1Hero';
 import Scene2Pain from './components/Scene2Pain';
-import Scene3Turning from './components/Scene3Turning';
 import Scene4Pipeline from './components/Scene4Pipeline';
 import Scene5Intelligence from './components/Scene5Intelligence';
-import Scene6Completion from './components/Scene6Completion';
 import Scene7CTA from './components/Scene7CTA';
 import ScrollProgress from './components/ScrollProgress';
 import MusionLogo from './components/MusionLogo';
 
-const TOTAL_SCENES = 7;
+const TOTAL_SCENES = 5;
 const AUTO_INTERVAL = 5000; // ms per scene
 const PAUSE_AFTER_INTERACTION = 12000; // ms pause after user scrolls/clicks
 
@@ -48,7 +46,7 @@ function App() {
     autoTimer.current = setInterval(() => {
       if (Date.now() < pausedUntil.current) return;
       setActiveScene((prev) => {
-        const next = prev < TOTAL_SCENES ? prev : 1; // stop at last scene, loop back to 1
+        const next = prev < TOTAL_SCENES ? prev + 1 : 1;
         scrollToScene(next - 1);
         return next;
       });
@@ -76,10 +74,8 @@ function App() {
       <ScrollProgress activeScene={activeScene} />
       <Scene1Hero />
       <Scene2Pain />
-      <Scene3Turning />
       <Scene4Pipeline />
       <Scene5Intelligence />
-      <Scene6Completion />
       <Scene7CTA />
     </div>
   );

@@ -4,7 +4,7 @@ interface ScrollProgressProps {
   activeScene: number;
 }
 
-const scenes = [1, 2, 3, 4, 5, 6, 7];
+const scenes = [1, 2, 3, 4, 5];
 
 export default function ScrollProgress({ activeScene }: ScrollProgressProps) {
   return (
