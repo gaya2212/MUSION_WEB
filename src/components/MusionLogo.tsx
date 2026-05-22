@@ -62,7 +62,6 @@ export default function MusionLogo() {
           </div>
         </div>
 
-        {/* Right: Join the Waitlist button */}
         <motion.button
           onClick={() => setModalOpen(true)}
           style={{
@@ -81,7 +80,7 @@ export default function MusionLogo() {
           whileHover={{ scale: 1.04, boxShadow: '0 0 18px rgba(0,229,255,0.25)' }}
           whileTap={{ scale: 0.97 }}
         >
-          Join the Waitlist
+          Get Early Access
         </motion.button>
       </motion.header>
 

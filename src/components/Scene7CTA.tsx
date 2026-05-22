@@ -53,7 +53,7 @@ export default function Scene7CTA() {
             transition={{ delay: 0.35, duration: 0.8 }}
             viewport={{ once: false }}
           >
-            The world doesn't need another place to book a service.
+            Most platforms were built for the industry.
           </motion.p>
 
           <motion.p
@@ -64,7 +64,7 @@ export default function Scene7CTA() {
             transition={{ delay: 0.5, duration: 0.8 }}
             viewport={{ once: false }}
           >
-            It needs a place where music actually gets finished.
+            Musion was built for the artist.
           </motion.p>
         </div>
 

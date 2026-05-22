@@ -29,7 +29,7 @@ export default function Scene4Pipeline() {
               lineHeight: 1.12,
             }}
           >
-            Every stage. Structured, tracked, and protected.
+            Tell us what you're making. We handle the rest.
           </h2>
         </div>
 

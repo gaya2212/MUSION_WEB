@@ -42,7 +42,7 @@ export default function Scene1Hero() {
               margin: 0,
             }}
           >
-            Your music deserves to be finished
+            Your music deserves to be finished.
           </h1>
           <p
             style={{
@@ -57,7 +57,7 @@ export default function Scene1Hero() {
               marginRight: 'auto',
             }}
           >
-            Musion is the production intelligence layer that takes independent artists from first idea to finished, released music - with the right professionals, matched to your project, at every stage.
+            Musion is the one place where your music gets made, marketed, and released - with the right professionals matched to every stage, so nothing gets dropped between the idea and the world hearing it.
           </p>
 
           <div
@@ -80,7 +80,7 @@ export default function Scene1Hero() {
               whileTap={{ scale: 0.97 }}
               onClick={() => setModalOpen(true)}
             >
-              Join the Waitlist
+              Get Early Access - It's Free
             </motion.button>
 
             <motion.button

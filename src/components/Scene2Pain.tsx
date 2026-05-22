@@ -1,25 +1,20 @@
 import { motion } from 'framer-motion';
-import { MessageSquareOff, DollarSign, RefreshCw, FolderClock } from 'lucide-react';
+import { DollarSign, RefreshCw, FolderClock } from 'lucide-react';
 
 const painPoints = [
   {
-    title: 'The producer who ghosted',
-    body: "You found someone promising. Sent the files. Waited three weeks. Then two more. The project is still sitting there, half-built, in someone else's hands.",
-    icon: MessageSquareOff,
-  },
-  {
-    title: 'The studio that broke your budget',
-    body: "The hourly rate sounded fine. The hidden fees didn't. By the time you were done, you'd spent twice what you planned and still didn't have a mix.",
+    title: 'The studio that ate your budget',
+    body: "The rate looked fine. The clock didn't care. You left with less money and no usable take.",
     icon: DollarSign,
   },
   {
-    title: 'The mix that came back wrong. Three times.',
-    body: "You gave notes. They said they got it. You listened back and it still wasn't right. No accountability. No structure. Just endless back and forth going nowhere.",
+    title: 'You finished the album. Now what?',
+    body: "Marketing, social, PR, playlist pitching — nobody teaches you this. So it sits there. Finished and invisible.",
     icon: RefreshCw,
   },
   {
-    title: 'The EP sitting in a folder from 8 months ago',
-    body: "You started with fire. The sessions were good. Then one thing fell through, then another, and now the whole project lives in a folder you haven't opened since.",
+    title: 'The project collecting dust',
+    body: "One thing fell apart. Then the momentum died. Six months later it's still in a folder, waiting to be heard.",
     icon: FolderClock,
   },
 ];
@@ -58,11 +53,11 @@ export default function Scene2Pain() {
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: false }}
         >
-          Sound familiar?
+          If you've made music independently, you know exactly how this goes.
         </motion.p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 md:[&>*:last-child:nth-child(odd)]:col-span-2 md:[&>*:last-child:nth-child(odd)]:max-w-[calc(50%-10px)] md:[&>*:last-child:nth-child(odd)]:mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -118,18 +113,14 @@ export default function Scene2Pain() {
           viewport={{ once: false, margin: '-80px' }}
         >
           <p
-            className="font-body text-lg md:text-2xl leading-relaxed"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            We built Musion because this story is too common.
-          </p>
-          <p
             className="font-body text-base md:text-xl leading-relaxed mt-3"
             style={{ color: 'var(--text-dim)' }}
           >
-            Not because artists lack talent.
+            None of this happened because you're not talented enough.
             <br />
-            Because the industry has never given them the infrastructure to finish.
+            It happened because nobody built you the infrastructure to finish.
+            <br />
+            Until now.
           </p>
         </motion.div>
       </div>
