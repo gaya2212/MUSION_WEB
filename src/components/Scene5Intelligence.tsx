@@ -45,9 +45,8 @@ export default function Scene5Intelligence() {
             transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: false }}
           >
-            Every project teaches us which studios deliver, which engineers fit which sounds,
-            and which timelines actually hold. That knowledge lives in the platform — not with
-            one person. So when you start, you're not starting from zero.
+            Every match is scored across six dimensions. The more projects move through Musion,
+            the smarter the matching gets — that's the data flywheel.
           </motion.p>
 
           <motion.p
