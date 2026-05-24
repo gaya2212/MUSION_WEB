@@ -1,21 +1,5 @@
 import { motion } from 'framer-motion';
-
-const flywheelNodes = [
-  { label: 'More Projects', angle: -90 },
-  { label: 'Richer Data', angle: -18 },
-  { label: 'Smarter Matching', angle: 54 },
-  { label: 'More Finished\nRecords', angle: 126 },
-  { label: 'More Artists', angle: 198 },
-];
-
-const RADIUS = 130;
-const CX = 180;
-const CY = 180;
-
-function toXY(angleDeg: number, r = RADIUS) {
-  const rad = (angleDeg * Math.PI) / 180;
-  return { x: CX + r * Math.cos(rad), y: CY + r * Math.sin(rad) };
-}
+import intelligenceVideo from '../assets/intelligence-preview.mov';
 
 export default function Scene5Intelligence() {
   return (
@@ -23,7 +7,7 @@ export default function Scene5Intelligence() {
       <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
         {/* Left: text */}
-        <div className="flex flex-col gap-5 w-full md:w-[50%]">
+        <div className="flex flex-col gap-5 w-full md:w-[45%]">
           <motion.p
             className="font-body text-sm tracking-[0.18em] uppercase"
             style={{ color: 'var(--accent-cyan)' }}
@@ -78,192 +62,78 @@ export default function Scene5Intelligence() {
           </motion.p>
         </div>
 
-        {/* Right: flywheel visualization */}
+        {/* Right: video preview */}
         <motion.div
-          className="w-full md:w-[50%] flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="w-full md:w-[55%] flex items-center justify-center"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: false }}
         >
-          <div style={{ position: 'relative', width: 360, height: 360 }}>
-            <svg
-              width="360"
-              height="360"
-              viewBox="0 0 360 360"
-              style={{ position: 'absolute', top: 0, left: 0 }}
-            >
-              {/* Outer glow ring */}
-              <circle
-                cx={CX}
-                cy={CY}
-                r={RADIUS}
-                fill="none"
-                stroke="rgba(0,229,255,0.06)"
-                strokeWidth="1"
-              />
+          {/* Outer glow halo */}
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              position: 'absolute',
+              inset: -1,
+              borderRadius: 20,
+              background: 'linear-gradient(135deg, rgba(0,229,255,0.25), rgba(224,64,251,0.15))',
+              filter: 'blur(18px)',
+              zIndex: 0,
+            }} />
 
-              {/* Connecting arcs between nodes */}
-              {flywheelNodes.map((_node, i) => {
-                const node = flywheelNodes[i];
-                const next = flywheelNodes[(i + 1) % flywheelNodes.length];
-                const from = toXY(node.angle, RADIUS);
-                const to = toXY(next.angle, RADIUS);
-                const mx = (from.x + to.x) / 2;
-                const my = (from.y + to.y) / 2;
-                const dx = mx - CX;
-                const dy = my - CY;
-                const len = Math.sqrt(dx * dx + dy * dy);
-                const cx2 = mx + (dx / len) * 20;
-                const cy2 = my + (dy / len) * 20;
-                return (
-                  <motion.path
-                    key={i}
-                    d={`M ${from.x} ${from.y} Q ${cx2} ${cy2} ${to.x} ${to.y}`}
-                    fill="none"
-                    stroke="rgba(0,229,255,0.28)"
-                    strokeWidth="1.5"
-                    strokeDasharray="5 3"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    whileInView={{ pathLength: 1, opacity: 1 }}
-                    transition={{ delay: 0.6 + i * 0.2, duration: 0.6 }}
-                    viewport={{ once: false }}
-                  />
-                );
-              })}
-
-              {/* Arrow heads */}
-              {flywheelNodes.map((_node, i) => {
-                const node = flywheelNodes[i];
-                const next = flywheelNodes[(i + 1) % flywheelNodes.length];
-                const pos = toXY(next.angle, RADIUS);
-                const prev = toXY(node.angle, RADIUS);
-                const angle = Math.atan2(pos.y - prev.y, pos.x - prev.x) * (180 / Math.PI);
-                return (
-                  <motion.polygon
-                    key={`arrow-${i}`}
-                    points="-5,-3 5,0 -5,3"
-                    fill="rgba(0,229,255,0.45)"
-                    transform={`translate(${pos.x}, ${pos.y}) rotate(${angle})`}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 1.1 + i * 0.2, duration: 0.3 }}
-                    viewport={{ once: false }}
-                  />
-                );
-              })}
-            </svg>
-
-            {/* Node dots + labels */}
-            {flywheelNodes.map((node, i) => {
-              const { x, y } = toXY(node.angle);
-              const lines = node.label.split('\n');
-              const dy = y - CY;
-              const labelOffsetY = dy > 0 ? 18 : -26 - (lines.length - 1) * 12;
-              return (
-                <motion.div
-                  key={node.label}
-                  style={{
-                    position: 'absolute',
-                    left: x,
-                    top: y,
-                    transform: 'translate(-50%, -50%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                  initial={{ opacity: 0, scale: 0.4 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 + i * 0.2, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                  viewport={{ once: false }}
-                >
-                  {/* Glow dot */}
-                  <motion.div
-                    style={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: '50%',
-                      background: 'var(--accent-cyan)',
-                      flexShrink: 0,
-                    }}
-                    animate={{
-                      boxShadow: [
-                        '0 0 6px rgba(0,229,255,0.3)',
-                        '0 0 18px rgba(0,229,255,0.9)',
-                        '0 0 6px rgba(0,229,255,0.3)',
-                      ],
-                    }}
-                    transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.5, ease: 'easeInOut' }}
-                  />
-
-                  {/* Label */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: labelOffsetY,
-                      textAlign: 'center',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {lines.map((line, li) => (
-                      <div
-                        key={li}
-                        style={{
-                          fontSize: 10,
-                          fontFamily: 'var(--font-body)',
-                          color: 'rgba(224,224,240,0.65)',
-                          letterSpacing: '0.04em',
-                          lineHeight: 1.3,
-                        }}
-                      >
-                        {line}
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
-
-            {/* Center label */}
-            <motion.div
-              style={{
-                position: 'absolute',
-                left: CX,
-                top: CY,
-                transform: 'translate(-50%, -50%)',
+            {/* Video frame */}
+            <div style={{
+              position: 'relative',
+              zIndex: 1,
+              borderRadius: 18,
+              overflow: 'hidden',
+              border: '1px solid rgba(0,229,255,0.18)',
+              background: '#000',
+              boxShadow: '0 0 40px rgba(0,229,255,0.08), 0 24px 60px rgba(0,0,0,0.6)',
+              maxWidth: 480,
+              width: '100%',
+            }}>
+              {/* Faux browser / app top bar */}
+              <div style={{
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
-                gap: 2,
-                textAlign: 'center',
-              }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 1.7, duration: 0.8 }}
-              viewport={{ once: false }}
-            >
-              <span style={{
-                fontSize: 8,
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--accent-cyan)',
-                opacity: 0.45,
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
+                gap: 6,
+                padding: '10px 14px',
+                background: 'rgba(255,255,255,0.03)',
+                borderBottom: '1px solid rgba(255,255,255,0.05)',
               }}>
-                the
-              </span>
-              <span style={{
-                fontSize: 13,
-                fontFamily: 'var(--font-body)',
-                color: 'var(--text-primary)',
-                fontWeight: 300,
-                letterSpacing: '-0.01em',
-              }}>
-                flywheel
-              </span>
-            </motion.div>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.12)' }} />
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.12)' }} />
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.12)' }} />
+                <div style={{
+                  marginLeft: 8,
+                  fontSize: 9,
+                  fontFamily: 'var(--font-mono)',
+                  color: 'rgba(255,255,255,0.2)',
+                  letterSpacing: '0.08em',
+                }}>
+                  musion.one — intelligence layer
+                </div>
+              </div>
+
+              {/* The actual video */}
+              <video
+                src={intelligenceVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  width: '100%',
+                  display: 'block',
+                  maxHeight: 340,
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
