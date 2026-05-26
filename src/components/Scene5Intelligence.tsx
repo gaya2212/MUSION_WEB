@@ -36,6 +36,18 @@ export default function Scene5Intelligence() {
             The more music gets made here,{' '}
             <span style={{ color: 'var(--accent-cyan)' }}>the better we get at making yours.</span>
           </motion.h2>
+
+          <motion.p
+            className="font-body leading-relaxed"
+            style={{ color: 'var(--text-dim)', fontSize: 'clamp(13px, 1.3vw, 17px)' }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            viewport={{ once: false }}
+          >
+            Every match is scored across six dimensions. The more projects move through Musion,
+            the smarter the matching gets — that's the data flywheel.
+          </motion.p>
         </div>
 
         {/* Right: video preview */}
