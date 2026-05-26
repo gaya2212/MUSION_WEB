@@ -42,7 +42,7 @@ export default function Scene1Hero() {
               margin: 0,
             }}
           >
-            Your music deserves to be finished.
+            The operating layer for music creation.
           </h1>
           <p
             style={{
@@ -57,7 +57,7 @@ export default function Scene1Hero() {
               marginRight: 'auto',
             }}
           >
-            Musion is the one place where your music gets made, marketed, and released - with the right professionals matched to every stage, so nothing gets dropped between the idea and the world hearing it.
+            Musion helps music teams organize production, connect collaborators, manage creative assets, and turn scattered workflows into structured intelligence.
           </p>
 
           <div
