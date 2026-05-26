@@ -45,8 +45,7 @@ export default function Scene5Intelligence() {
             transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: false }}
           >
-            Every match is scored across six dimensions. The more projects move through Musion,
-            the smarter the matching gets — that's the data flywheel.
+            Every collaboration is scored across creative compatibility, genre, workflow, budget, timelines and production style.
           </motion.p>
         </div>
 
