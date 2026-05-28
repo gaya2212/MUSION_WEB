@@ -13,9 +13,10 @@ export default function WaitlistModal({ onClose }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
+  const [otherRole, setOtherRole] = useState('');
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
 
-  const roles = ['Singer', 'Composer', 'Instrumentalist', 'Producer', 'Recording Studio', 'Sound Engineer'];
+  const roles = ['Singer', 'Composer', 'Instrumentalist', 'Producer', 'Recording Studio', 'Sound Engineer', 'Other'];
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,9 +27,11 @@ export default function WaitlistModal({ onClose }: Props) {
       return;
     }
 
+    const finalRole = role === 'Other' ? (otherRole.trim() || 'Other') : (role || null);
+
     const { error } = await supabase
       .from('waitlist')
-      .insert([{ name: name.trim(), email: email.trim().toLowerCase(), role: role || null, created_at: new Date().toISOString() }]);
+      .insert([{ name: name.trim(), email: email.trim().toLowerCase(), role: finalRole, created_at: new Date().toISOString() }]);
 
     if (!error) {
       setSubmitState('success');
@@ -202,7 +205,7 @@ export default function WaitlistModal({ onClose }: Props) {
                         <button
                           key={r}
                           type="button"
-                          onClick={() => setRole(selected ? '' : r)}
+                          onClick={() => { setRole(selected ? '' : r); if (selected) setOtherRole(''); }}
                           className="font-body text-xs rounded-full px-3 py-1.5 cursor-pointer transition-all"
                           style={{
                             background: selected ? 'linear-gradient(135deg, rgba(0,229,255,0.18), rgba(224,64,251,0.18))' : 'rgba(255,255,255,0.04)',
@@ -216,6 +219,26 @@ export default function WaitlistModal({ onClose }: Props) {
                       );
                     })}
                   </div>
+
+                  {/* Other text input */}
+                  <AnimatePresence>
+                    {role === 'Other' && (
+                      <motion.input
+                        key="other-input"
+                        type="text"
+                        placeholder="Tell us what you do…"
+                        value={otherRole}
+                        onChange={(e) => setOtherRole(e.target.value)}
+                        style={inputStyle}
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: 'auto', marginTop: 4 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.2 }}
+                        onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(0,217,255,0.4)')}
+                        onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)')}
+                      />
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* Inline error messages */}
