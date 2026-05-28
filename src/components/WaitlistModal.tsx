@@ -12,7 +12,10 @@ type SubmitState = 'idle' | 'loading' | 'success' | 'duplicate' | 'error';
 export default function WaitlistModal({ onClose }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [role, setRole] = useState('');
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
+
+  const roles = ['Singer', 'Composer', 'Instrumentalist', 'Producer', 'Recording Studio', 'Sound Engineer'];
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -25,7 +28,7 @@ export default function WaitlistModal({ onClose }: Props) {
 
     const { error } = await supabase
       .from('waitlist')
-      .insert([{ name: name.trim(), email: email.trim().toLowerCase(), created_at: new Date().toISOString() }]);
+      .insert([{ name: name.trim(), email: email.trim().toLowerCase(), role: role || null, created_at: new Date().toISOString() }]);
 
     if (!error) {
       setSubmitState('success');
@@ -185,6 +188,34 @@ export default function WaitlistModal({ onClose }: Props) {
                     onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(0,217,255,0.4)')}
                     onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)')}
                   />
+                </div>
+
+                {/* Who are you */}
+                <div className="flex flex-col gap-2">
+                  <label className="font-body text-xs tracking-wide" style={{ color: 'var(--text-dim)' }}>
+                    Who are you?
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {roles.map((r) => {
+                      const selected = role === r;
+                      return (
+                        <button
+                          key={r}
+                          type="button"
+                          onClick={() => setRole(selected ? '' : r)}
+                          className="font-body text-xs rounded-full px-3 py-1.5 cursor-pointer transition-all"
+                          style={{
+                            background: selected ? 'linear-gradient(135deg, rgba(0,229,255,0.18), rgba(224,64,251,0.18))' : 'rgba(255,255,255,0.04)',
+                            border: selected ? '1px solid rgba(0,217,255,0.5)' : '1px solid rgba(255,255,255,0.09)',
+                            color: selected ? 'var(--accent-cyan)' : 'var(--text-dim)',
+                            boxShadow: selected ? '0 0 12px rgba(0,217,255,0.15)' : 'none',
+                          }}
+                        >
+                          {r}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 {/* Inline error messages */}
